@@ -1,39 +1,50 @@
+# 🚗 Repair Cars Backend API
 
-# 🚗 Repair Cars Backend API #
-Uma API robusta desenvolvida em Node.js + Express + Mongoose para gerenciamento completo de uma oficina mecânica. Oferece funcionalidades para gestão de clientes, conversas, localização e pagamentos.
-📋 Índice
-·	Funcionalidades
-·	Tecnologias
-·	Instalação
-·	Configuração
-·	Endpoints
-·	Modelos de Dados
-·	Exemplos de Uso
-·	Scripts Úteis
-·	Estrutura do Projeto
-🚀 Funcionalidades
-·	👥 Gestão de Contatos - Cadastro completo de clientes e fornecedores
-·	💬 Sistema de Conversas - Mensagens em tempo real entre oficina e clientes
-·	📍 Rastreamento de Localização - Geolocalização para serviços móveis
-·	💳 Processamento de Pagamentos - Múltiplas formas de pagamento
-·	📊 Dashboard Analytics - Métricas e relatórios do negócio
-·	🔐 Autenticação JWT - Segurança robusta para a API
-·	📱 CORS Configurado - Pronto para integração com apps mobile
-🛠 Tecnologias
-·	Node.js - Runtime JavaScript
-·	Express.js - Framework web
-·	MongoDB - Banco de dados NoSQL
-·	Mongoose - ODM para MongoDB
-·	JWT - Autenticação por tokens
-·	CORS - Cross-Origin Resource Sharing
-·	bcryptjs - Criptografia de senhas
-·	dotenv - Variáveis de ambiente
-📥 Instalação
-Pré-requisitos
-·	Node.js 16+
-·	MongoDB 4.4+
-·	npm ou yarn
-Passo a passo
+Uma API robusta desenvolvida em **Node.js + Express + Mongoose** para gerenciamento completo de uma oficina mecânica. Oferece funcionalidades para gestão de clientes, conversas, localização e pagamentos.
+
+## 📋 Índice
+
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias](#-tecnologias)
+- [Instalação](#-instalação)
+- [Configuração](#-configuração)
+- [Endpoints](#-endpoints)
+- [Modelos de Dados](#-modelos-de-dados)
+- [Exemplos de Uso](#-exemplos-de-uso)
+- [Scripts Úteis](#-scripts-úteis)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+
+## 🚀 Funcionalidades
+
+- **👥 Gestão de Contatos** - Cadastro completo de clientes e fornecedores
+- **💬 Sistema de Conversas** - Mensagens em tempo real entre oficina e clientes
+- **📍 Rastreamento de Localização** - Geolocalização para serviços móveis
+- **💳 Processamento de Pagamentos** - Múltiplas formas de pagamento
+- **📊 Dashboard Analytics** - Métricas e relatórios do negócio
+- **🔐 Autenticação JWT** - Segurança robusta para a API
+- **📱 CORS Configurado** - Pronto para integração com apps mobile
+
+## 🛠 Tecnologias
+
+- **Node.js** - Runtime JavaScript
+- **Express.js** - Framework web
+- **MongoDB** - Banco de dados NoSQL
+- **Mongoose** - ODM para MongoDB
+- **JWT** - Autenticação por tokens
+- **CORS** - Cross-Origin Resource Sharing
+- **bcryptjs** - Criptografia de senhas
+- **dotenv** - Variáveis de ambiente
+
+## 📥 Instalação
+
+### Pré-requisitos
+- Node.js 16+
+- MongoDB 4.4+
+- npm ou yarn
+
+### Passo a passo
+
+```bash
 # 1. Clone o repositório
 git clone <seu-repositorio>
 cd repair-cars-backend
@@ -46,9 +57,12 @@ cp .env.example .env
 
 # 4. Inicie o servidor
 npm run dev
+```
 
-⚙ Configuração
-Arquivo .env
+## ⚙ Configuração
+
+### Arquivo `.env`
+```env
 # Servidor
 PORT=3000
 NODE_ENV=development
@@ -62,56 +76,68 @@ JWT_EXPIRES_IN=7d
 
 # CORS
 CLIENT_URL=http://localhost:3001
+```
 
-Configuração do MongoDB
+### Configuração do MongoDB
+```bash
 # Iniciar MongoDB (Linux/macOS)
 sudo systemctl start mongod
 
 # Ou iniciar manualmente
 mongod --dbpath /caminho/para/dados
+```
 
-📡 Endpoints
-🔍 Status da API
-Método	Endpoint	Descrição
-GET	/api/health	Status da API e informações do servidor
+## 📡 Endpoints
 
-👥 Contatos
-Método	Endpoint	Descrição
-GET	/api/contacts	Listar todos os contatos
-GET	/api/contacts/:id	Buscar contato por ID
-POST	/api/contacts	Criar novo contato
-PUT	/api/contacts/:id	Atualizar contato
-DELETE	/api/contacts/:id	Excluir contato (soft delete)
+### 🔍 Status da API
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/health` | Status da API e informações do servidor |
 
-💬 Conversas
-Método	Endpoint	Descrição
-GET	/api/conversations	Listar conversas
-GET	/api/conversations/:id	Buscar conversa específica
-POST	/api/conversations	Iniciar nova conversa
-POST	/api/conversations/:id/messages	Enviar mensagem
-GET	/api/conversations/contact/:contactId	Conversas de um contato
+### 👥 Contatos
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/contacts` | Listar todos os contatos |
+| `GET` | `/api/contacts/:id` | Buscar contato por ID |
+| `POST` | `/api/contacts` | Criar novo contato |
+| `PUT` | `/api/contacts/:id` | Atualizar contato |
+| `DELETE` | `/api/contacts/:id` | Excluir contato (soft delete) |
 
-📍 Localizações
-Método	Endpoint	Descrição
-GET	/api/locations	Listar localizações
-POST	/api/locations	Registrar localização
-GET	/api/locations/contact/:contactId	Localizações de um contato
-GET	/api/locations/nearby	Localizações próximas
+### 💬 Conversas
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/conversations` | Listar conversas |
+| `GET` | `/api/conversations/:id` | Buscar conversa específica |
+| `POST` | `/api/conversations` | Iniciar nova conversa |
+| `POST` | `/api/conversations/:id/messages` | Enviar mensagem |
+| `GET` | `/api/conversations/contact/:contactId` | Conversas de um contato |
 
-💳 Pagamentos
-Método	Endpoint	Descrição
-GET	/api/payments	Listar pagamentos
-POST	/api/payments	Criar pagamento
-PUT	/api/payments/:id/status	Atualizar status
-GET	/api/payments/contact/:contactId	Pagamentos de um contato
+### 📍 Localizações
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/locations` | Listar localizações |
+| `POST` | `/api/locations` | Registrar localização |
+| `GET` | `/api/locations/contact/:contactId` | Localizações de um contato |
+| `GET` | `/api/locations/nearby` | Localizações próximas |
 
-📊 Dashboard
-Método	Endpoint	Descrição
-GET	/api/dashboard/stats	Estatísticas gerais
-GET	/api/dashboard/recent-activity	Atividade recente
+### 💳 Pagamentos
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/payments` | Listar pagamentos |
+| `POST` | `/api/payments` | Criar pagamento |
+| `PUT` | `/api/payments/:id/status` | Atualizar status |
+| `GET` | `/api/payments/contact/:contactId` | Pagamentos de um contato |
 
-🗃 Modelos de Dados
-Contact (Contato)
+### 📊 Dashboard
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| `GET` | `/api/dashboard/stats` | Estatísticas gerais |
+| `GET` | `/api/dashboard/recent-activity` | Atividade recente |
+
+## 🗃 Modelos de Dados
+
+### Contact (Contato)
+```javascript
 {
   name: { type: String, required: true },
   phone: { type: String, required: true },
@@ -130,8 +156,10 @@ Contact (Contato)
   notes: String,
   isActive: { type: Boolean, default: true }
 }
+```
 
-Conversation (Conversa)
+### Conversation (Conversa)
+```javascript
 {
   participants: [{ 
     type: mongoose.Schema.Types.ObjectId, 
@@ -151,8 +179,10 @@ Conversation (Conversa)
   lastMessage: String,
   lastMessageTimestamp: Date
 }
+```
 
-Location (Localização)
+### Location (Localização)
+```javascript
 {
   contact: { 
     type: mongoose.Schema.Types.ObjectId, 
@@ -165,8 +195,10 @@ Location (Localização)
   accuracy: Number,
   timestamp: { type: Date, default: Date.now }
 }
+```
 
-Payment (Pagamento)
+### Payment (Pagamento)
+```javascript
 {
   contact: { 
     type: mongoose.Schema.Types.ObjectId, 
@@ -189,9 +221,12 @@ Payment (Pagamento)
   dueDate: Date,
   paidAt: Date
 }
+```
 
-💡 Exemplos de Uso
-Criar um contato
+## 💡 Exemplos de Uso
+
+### Criar um contato
+```bash
 curl -X POST http://localhost:3000/api/contacts \
   -H "Content-Type: application/json" \
   -d '{
@@ -205,8 +240,10 @@ curl -X POST http://localhost:3000/api/contacts \
       "state": "SP"
     }
   }'
+```
 
-Enviar uma mensagem
+### Enviar uma mensagem
+```bash
 curl -X POST http://localhost:3000/api/conversations/507f1f77bcf86cd799439011/messages \
   -H "Content-Type: application/json" \
   -d '{
@@ -214,8 +251,10 @@ curl -X POST http://localhost:3000/api/conversations/507f1f77bcf86cd799439011/me
     "content": "Seu carro está pronto para retirada!",
     "messageType": "text"
   }'
+```
 
-Registrar localização
+### Registrar localização
+```bash
 curl -X POST http://localhost:3000/api/locations \
   -H "Content-Type: application/json" \
   -d '{
@@ -224,8 +263,11 @@ curl -X POST http://localhost:3000/api/locations \
     "longitude": -46.6333,
     "address": "Av. Paulista, 1000"
   }'
+```
 
-🛠 Scripts Úteis
+## 🛠 Scripts Úteis
+
+```bash
 # Desenvolvimento
 npm run dev          # Inicia com nodemon (auto-reload)
 
@@ -240,8 +282,11 @@ npm run clear-db    # Limpa dados de desenvolvimento
 # Qualidade de Código
 npm run lint        # Análise ESLint
 npm run format      # Formata código com Prettier
+```
 
-📁 Estrutura do Projeto
+## 📁 Estrutura do Projeto
+
+```
 repair-cars-backend/
 ├── models/                 # Modelos do Mongoose
 │   ├── Contact.js
@@ -264,35 +309,48 @@ repair-cars-backend/
 ├── .env.example
 ├── package.json
 └── server.js
+```
 
-🔄 Integração com App Mobile
-Configuração no Android:
+## 🔄 Integração com App Mobile
+
+### Configuração no Android:
+```kotlin
 // No ApiClient.kt
 val BASE_URL = "http://10.0.2.2:3000/api/"  // Emulador
 // ou
 val BASE_URL = "http://192.168.1.100:3000/api/"  // Dispositivo físico
+```
 
-Headers recomendados:
+### Headers recomendados:
+```http
 Content-Type: application/json
 Authorization: Bearer <jwt_token>
+```
 
-🚨 Solução de Problemas
-Erros comuns:
-·	MongoDB não conecta: Verifique se o serviço está rodando
-·	Porta ocupada: Altere a PORT no .env
-·	CORS errors: Configure CLIENT_URL corretamente
-Logs de depuração:
+## 🚨 Solução de Problemas
+
+### Erros comuns:
+- **MongoDB não conecta**: Verifique se o serviço está rodando
+- **Porta ocupada**: Altere a `PORT` no `.env`
+- **CORS errors**: Configure `CLIENT_URL` corretamente
+
+### Logs de depuração:
+```bash
 # Verificar status do MongoDB
 sudo systemctl status mongod
 
 # Testar conexão com a API
 curl http://localhost:3000/api/health
+```
 
-📞 Suporte
+## 📞 Suporte
+
 Em caso de problemas:
-1.	Verifique os logs do servidor
-2.	Confirme se o MongoDB está rodando
-3.	Valide as configurações do .env
-4.	Consulte a documentação da API
+1. Verifique os logs do servidor
+2. Confirme se o MongoDB está rodando
+3. Valide as configurações do `.env`
+4. Consulte a documentação da API
 
-Desenvolvido com ❤️ para oficinas mecânicas
+---
+
+**Desenvolvido com ❤️ para oficinas mecânicas**
