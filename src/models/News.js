@@ -15,7 +15,7 @@ const newsSchema = new mongoose.Schema({
     required: true
   },
   data: {
-    type: String,
+    type: Date, // ✅ CORRIGIDO: Mudado de String para Date
     required: true
   },
   dataPublicacao: {
@@ -56,6 +56,19 @@ newsSchema.index({
   descricao: 'text', 
   conteudo: 'text',
   tags: 'text'
+});
+
+// ✅ ADICIONADO: Virtual para converter _id para id
+newsSchema.virtual('id').get(function() {
+  return this._id.toHexString();
+});
+
+newsSchema.set('toJSON', {
+  virtuals: true,
+  transform: function(doc, ret) {
+    delete ret._id;
+    delete ret.__v;
+  }
 });
 
 module.exports = mongoose.model('News', newsSchema);
